@@ -136,11 +136,7 @@ async def pick_album(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 
 async def album(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Display which album is currently selected
-    await update.message.reply_text(f"""
-                                    This weeks Listening Club album is <b>{INFO['ALBUM']['NAME']}</b> by <b>{INFO['ALBUM']['ARTIST']}</b>, 
-                                    selected by {INFO['ALBUM']['USER']} on {INFO['ALBUM']['DATE_SELECTED']}.\n<i><b>Please listen by Sunday!</b>
-                                    </i>\n{INFO['ALBUM']['SPOTIFY_LINK']}
-                                    """, 
+    await update.message.reply_text(f"This weeks Listening Club album is <b>{INFO['ALBUM']['NAME']}</b> by <b>{INFO['ALBUM']['ARTIST']}</b>, selected by {INFO['ALBUM']['USER']} on {INFO['ALBUM']['DATE_SELECTED']}.\n<i><b>Please listen by Sunday!</b></i>\n{INFO['ALBUM']['SPOTIFY_LINK']}", 
                                     parse_mode=telegram.constants.ParseMode.HTML
     )
 
