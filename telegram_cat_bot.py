@@ -23,7 +23,12 @@ with open(vars_path) as f:
 def get_album(album):
     #
     search = spotify.search(album)
-    first_res = search["tracks"]["items"][0]["album"]
+    try:
+        first_res = search["tracks"]["items"][0]["album"]
+    except KeyError:
+        return {}
+    except IndexError:
+        return {}
     return {
         "name": first_res["name"],
         "link" : first_res["external_urls"]["spotify"],
@@ -114,22 +119,25 @@ async def pick_album(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     album = update.message.text.split("/pick_album")[1].lstrip()
     user_info =update.message.from_user
     username = f"{user_info.first_name} {user_info.last_name}"
-
+    print(f"Picking album from host {username}, selection {album}")
     # Check if user is current host 
     if INFO["CURRENT_HOST"] == username:
         spotify_data = get_album(album)
-        album_data = {
-            "NAME" : spotify_data["name"],
-            "ARTIST" : spotify_data["artist"] ,
-            "USER" : username,
-            "DATE_SELECTED": str(date.today()),
-            "SPOTIFY_LINK" : spotify_data["link"]
-        }
-        INFO["ALBUM"] = album_data
-        INFO["HISTORY"].append(album_data)
-        refresh_info(INFO)
-        print(f"New album = {album_data}")
-        update_msg = f"You have selected {album} for this weeks Listening Club!\nListen here: {spotify_data['link']}"
+        if spotify_data == {}:
+            update_msg = f"Query failed for input {album}, please try formatting it in the fashion of [Album] by [Artist]"
+        else:
+            album_data = {
+                "NAME" : spotify_data["name"],
+                "ARTIST" : spotify_data["artist"] ,
+                "USER" : username,
+                "DATE_SELECTED": str(date.today()),
+                "SPOTIFY_LINK" : spotify_data["link"]
+            }
+            INFO["ALBUM"] = album_data
+            INFO["HISTORY"].append(album_data)
+            refresh_info(INFO)
+            print(f"New album = {album_data}")
+            update_msg = f"You have selected {album} for this weeks Listening Club!\nListen here: {spotify_data['link']}"
     else:
         update_msg = f"You aren't the host, bozo."
     await update.message.reply_text(update_msg)

@@ -1,0 +1,44 @@
+{
+  "TOKEN": "1913938358:AAHvy4LDRPfXWkXehzVKWYhUdYZgnV9y1Ro",
+  "REDDIT_SECRET": "T9eM5CXgj1vJEI4lo6CbmaxhqhQKEQ",
+  "REDDIT_ID": "tp0BBwPnLSusYXuga9GldA",
+  "USERS": [
+    "Alex Chacko",
+    "dani None",
+    "David Deming",
+    "Hagan Beatson",
+    "Sarmed None",
+    "Amanda None",
+    "Viroon Yong",
+    "Bill Wang",
+    "Yusuf M",
+    "Joel"
+  ],
+  "HISTORY": [
+    {
+      "NAME": "Imaginal Disk",
+      "ARTIST": "Magdalena Bay",
+      "USER": "Hagan Beatson",
+      "DATE_SELECTED": "2024-09-21",
+      "SPOTIFY_LINK": "https://open.spotify.com/album/4HTy9WFTYooRjE9giTmzAF"
+    },
+    {
+      "NAME": "Why Lawd?",
+      "ARTIST": "NxWorries",
+      "USER": "Hagan Beatson",
+      "DATE_SELECTED": "2024-09-23",
+      "SPOTIFY_LINK": "https://open.spotify.com/album/0LlzHi8Erl8zpTumqt88Qe"
+    }
+  ],
+  "ALBUM": {
+    "NAME": "Why Lawd?",
+    "ARTIST": "NxWorries",
+    "USER": "Hagan Beatson",
+    "DATE_SELECTED": "2024-09-23",
+    "SPOTIFY_LINK": "https://open.spotify.com/album/0LlzHi8Erl8zpTumqt88Qe"
+  },
+  "CURRENT_HOST": "Hagan Beatson",
+  "HOSTS": [
+    "Alex Chacko"
+  ]
+}
