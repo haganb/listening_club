@@ -168,8 +168,8 @@ if __name__ == "__main__":
     application = telegram.ext.Application.builder().token(INFO["TOKEN"]).build()
     print("Running application with config...")
     # pprint.pprint(INFO)
-    for key, value in INFO.items():
-        print(key, value)
+    # for key, value in INFO.items():
+    #     print(key, value)
     
  
     # Member commands
